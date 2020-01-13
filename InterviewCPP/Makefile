@@ -14,19 +14,22 @@ OBJ_DIR := ./obj
 #SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp $(SRC_DIR)/inheritance/*.cpp)
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp $(SRC_DIR)/inheritance/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
+INC = ./include
 
 
-test1:
-	echo $(SRC_FILES)
-INC = include
+
 
 all: $(OBJ_FILES)
-	$(CC) -o output $^
+	$(CC) -I $(INC) -o output $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CFLAGS) -I $(INC) -c -o $@ $<
 
+test1:
+	echo $(SRC_FILES)
 
+test2: 
+	g++ src/Student.cpp -c -I ./include
 
 #all: $(OBJS)
 #	$(CC) -o output $^
