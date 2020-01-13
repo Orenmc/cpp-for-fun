@@ -2,7 +2,7 @@
  * main.cpp
  *
  *  Created on: Jan 9, 2020
- *      Author: oren
+ *      Author: Oren Cohen
  */
 
 #include <iostream>
