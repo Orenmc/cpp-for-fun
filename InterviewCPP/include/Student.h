@@ -8,28 +8,25 @@
 #ifndef STUDENT_H_
 #define STUDENT_H_
 
-#include <string>
+#include <cstring>
+#include <iostream>
+
 using namespace std;
 
 class Student {
 public:
-	Student(int id, const string& name, double avg);
-//	Student(const Student& oldStudent);
-//	~Student();
-	double getAvg() const;
-	void setAvg(double avg);
-	int getId() const;
-	void setId(int id);
-	const string& getName() const;
-	void setName(const string &name);
-	int getP() const;
-	void setP(int p);
-	void print() const;
+	Student();
+	Student(const char* n);
+	Student(const Student& s);
+	virtual ~Student();
+
+	Student& operator =(const Student& s);
+	friend ostream& operator <<(ostream& out, const Student& s);
+	char* getName() const;
+	void setName(char *name);
 
 private:
-	int id;
-	string name;
-	double avg;
+	char* name;
 };
 
 #endif /* STUDENT_H_ */
